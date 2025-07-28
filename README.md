@@ -4,7 +4,7 @@ A simple web application built with Laravel and running inside Docker containers
 
 ## Features
 
-- **User Authentication**: Register and login with Laravel Breeze
+- **Local User Authentication**: Register and login with your own local accounts (stored in your database)
 - **Task Management**: Create, view, edit, and delete tasks
 - **File Attachments**: Upload and manage file attachments for tasks
 - **Task Details**: Each task includes:
@@ -13,7 +13,8 @@ A simple web application built with Laravel and running inside Docker containers
   - Notes (optional)
   - Multiple file attachments
 - **Due Date Tracking**: Visual indicators for overdue and due-today tasks
-- **Responsive Design**: Built with Tailwind CSS
+- **User Isolation**: Each user sees only their own tasks
+- **Responsive Design**: Built with Tailwind CSS for mobile and desktop
 
 ## Project Structure
 
@@ -80,6 +81,51 @@ taskhawk/
 
 4. **Access the application**:
    Open your browser and navigate to `http://localhost:8080`
+
+5. **Create your first user account**:
+   - Click "Register" on the homepage
+   - Fill in your email, name, and password
+   - This creates a local user account in the TaskHawk database
+   - **Note**: This is local registration within the TaskHawk application, not a Laravel.com account
+
+## Getting Started - User Registration
+
+TaskHawk uses **local user registration**, meaning user accounts are created and stored in your own database, not through any external Laravel service.
+
+### First-Time Setup
+
+1. **Navigate to the application**: Go to `http://localhost:8080`
+
+2. **Register a new account**:
+   - Click the **"Register"** link in the top navigation
+   - Fill out the registration form:
+     - **Name**: Your display name
+     - **Email**: Your email address (used for login)
+     - **Password**: Choose a secure password
+     - **Confirm Password**: Re-enter your password
+   - Click **"Register"** to create your account
+
+3. **Login to your account**:
+   - After registration, you'll be automatically logged in
+   - For future visits, use the **"Login"** link with your email and password
+
+4. **Start managing tasks**:
+   - Once logged in, you'll see the task dashboard
+   - Click **"Create New Task"** to add your first task
+
+### User Account Features
+
+- **Local Authentication**: All user data is stored in your local MySQL database
+- **Secure Registration**: Passwords are hashed using Laravel's built-in security
+- **Profile Management**: Update your name, email, and password in the profile section
+- **Task Isolation**: Each user can only see and manage their own tasks
+
+### Multiple Users
+
+You can create multiple user accounts for testing:
+- Each user will have their own separate task list
+- Users cannot see or access other users' tasks
+- All data is stored locally in your Docker MySQL container
 
 ### Development Commands
 
